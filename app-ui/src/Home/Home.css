@@ -1,0 +1,53 @@
+/* src/Home.css */
+
+.home-scrolljack-container {
+    height: 500vh; /* Extended height for scrolling */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #landing-page-layers img {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .abs-horizontal-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .abs-top {
+    top: 0;
+  }
+  
+  #splash {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+    
+  .home-container {
+    position: absolute;
+    top: 5%; /* 20px margin from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for center alignment */
+    z-index: 2; /* Ensure it's above the background */
+    text-align: center;
+    border: 5px solid #3e7c3f;
+    border-radius: 20px;
+    background-color: #ecf87f;
+    padding: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  h1 {
+    color: #3e7c3f;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #557a46;
+  }
