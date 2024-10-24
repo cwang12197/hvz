@@ -1,10 +1,10 @@
-// src/Home.js
 import React, { useEffect, useState } from 'react';
 import './Home.css';
+import Rules from '../Rules/Rules.js';
 
 const Home = () => {
     const [scrollY, setScrollY] = useState(0);
-    const currentYear = new Date().getFullYear(); // Get current year from system date
+    const currentYear = new Date().getFullYear();
     const [dates, setDates] = useState({ monday: '', friday: '' });
 
     useEffect(() => {
@@ -21,42 +21,59 @@ const Home = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const imagePositions = [
+        { top: '0', left: '0' },
+        { top: '50px', left: '10%' },
+        { top: '80px', left: '90%' },
+        { top: '50px', right: '10%' },
+        { top: '100px', left: '30%' },
+        { top: '150px', right: '20%' },
+    ];
+
     return (
         <div id="home" className="home-scrolljack-container">
             <div className="home-scrolljack-container--inner">
                 <section id="home--inner">
                     <div id="society">
                         <div id="landing-page-layers">
-                            {[
-                                'bridge.png',
-                                'bridge.png',
-                                'bridge.png',
-                                'bridge.png',
-                            ].map((id, index) => (
+                            {['bridge.png', 'bridge.png', 'bridge.png', 'bridge.png'].map((id, index) => (
                                 <img
-                                    key={id}
+                                    key={id + index}
                                     id={id}
-                                    src={`${id}`}
+                                    src={`/${id}`}
                                     alt={id.replace('-', ' ')}
                                     style={{
+                                        position: 'absolute',
+                                        ...imagePositions[index],
                                         transform: `translate3d(0px, ${scrollY * (index + 0.2)}px, 0px)`,
                                         opacity: 1 - scrollY / 1000,
                                     }}
-                                    className={id === 'wood-panel' ? 'abs-horizontal-center abs-top' : ''}
                                 />
                             ))}
                         </div>
                     </div>
                 </section>
-                <div className="home-wrapper">
+                <div className="png-container">
+                    <img src="/pvz_note.png" alt="Wood Panel" className="background-png" />
                     <div className="home-container">
-                        <h1>Welcome to CSA HVZ {currentYear}!</h1>
-                        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-                            <p>Here's your chance to eat the brains of your enemies and bring honor to your family!</p>
-                            <p>{dates.monday} 12:00 AM - {dates.friday} 3:00 PM EST </p>
-                        </div>
+                        <h1>WELCOME TO </h1>
+                        <h1> CSA HVZ {currentYear}!</h1>
+                        <p>
+                            <span className="first-line">
+                                Here's your chance to eat the brains of your enemies and bring honor to your family!
+                            </span>
+                            <br />
+                            <span className="second-line">
+                                {dates.monday} 12:00 AM - {dates.friday} 3:00 PM EST
+                            </span>
+                        </p>
                     </div>
                 </div>
+                <div style={{ height: '150vh' }}></div>
+
+                <section className="rules-section">
+                    <Rules />
+                </section>
             </div>
         </div>
     );
@@ -65,30 +82,18 @@ const Home = () => {
 export default Home;
 
 const getMondayAndFridayBeforeHalloween = (year) => {
-    const halloween = new Date(year, 9, 31); // October 31st
-    const dayOfWeek = halloween.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-    let daysBack;
+    const halloween = new Date(year, 9, 31);
+    const dayOfWeek = halloween.getDay();
+    let daysBack = dayOfWeek === 0 ? 5 : dayOfWeek === 6 ? 4 : dayOfWeek + 6;
 
-    if (dayOfWeek === 0) {
-        daysBack = 5; // If Sunday, go 5 days back
-    } else if (dayOfWeek === 6) {
-        daysBack = 4; // If Saturday, go 4 days back
-    } else {
-        daysBack = dayOfWeek + 6; // If Monday-Friday, go 6-11 days back
-    }
+    const monday = new Date(halloween);
+    monday.setDate(halloween.getDate() - daysBack);
 
-    // Find the Monday before Halloween
-    const mondayBeforeHalloween = new Date(halloween);
-    mondayBeforeHalloween.setDate(halloween.getDate() - daysBack);
+    const friday = new Date(monday);
+    friday.setDate(monday.getDate() + 4);
 
-    // Find the corresponding Friday (same week)
-    const fridayBeforeHalloween = new Date(mondayBeforeHalloween);
-    fridayBeforeHalloween.setDate(mondayBeforeHalloween.getDate() + 4); // Add 4 days to get Friday
-
-    return { monday: mondayBeforeHalloween, friday: fridayBeforeHalloween };
+    return { monday, friday };
 };
 
-// Function to format a single date
-const formatDate = (date) => {
-    return `${date.toLocaleString('default', { weekday: 'long' })}, ${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}`;
-};
+const formatDate = (date) =>
+    `${date.toLocaleString('default', { weekday: 'long' })}, ${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}`;

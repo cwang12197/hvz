@@ -1,7 +1,20 @@
-/* src/Home.css */
+@font-face {
+    font-family: 'HorrorNightDrip';
+    src: url('../HorrorNightDrip-K7Jap.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GrimsAcid';
+    src: url('../GrimsAcid-8MEKD.otf');
+}
+
+@font-face {
+    font-family: 'HalloweenCarnival';
+    src: url('../HalloweenCarnival-8M96J.ttf');
+}
 
 .home-scrolljack-container {
-    height: 500vh; /* Extended height for scrolling */
+    height: 400vh;
     position: relative;
     overflow: hidden;
   }
@@ -30,24 +43,52 @@
     text-align: center;
     color: white;
   }
-    
-  .home-container {
-    position: absolute;
-    top: 5%; /* 20px margin from the top */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for center alignment */
-    z-index: 2; /* Ensure it's above the background */
-    text-align: center;
-    border: 5px solid #3e7c3f;
-    border-radius: 20px;
-    background-color: #ecf87f;
-    padding: 50px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  }
   
-  h1 {
-    color: #3e7c3f;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px #557a46;
-  }
+  .png-container {
+    position: relative;
+    width: 100%;
+    max-width: 750px; 
+    margin: 0 auto; 
+}
+
+.background-png {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.home-container {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 70%; 
+    max-width: 500px;
+    text-align: center;
+}
+
+.home-container h1 {
+    font-size: clamp(2rem, 5vw, 6rem);
+    color:#3e7c3f;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    font-family: 'HalloweenCarnival', sans-serif;
+    line-height: 1;
+    margin: 5px 0; 
+    word-break: break-word;
+    text-align: center;
+}
+
+.home-container .first-line{
+    font-size: clamp(.8rem, 2.5vw, 1.5rem); 
+    color: #000000;
+    font-family: 'GrimsAcid', sans-serif;
+    line-height: 1;
+}
+
+.home-container .second-line {
+    font-size: clamp(.6rem, 2.5vw, 1rem); 
+    color: #3b3939;
+    display: block;
+    padding-top: 15px;
+    font-family: 'HorrorNightDrip', sans-serif;
+}
