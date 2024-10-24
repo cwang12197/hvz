@@ -3,6 +3,7 @@ import './Home.css';
 import Rules from '../Rules/Rules.js';
 import GeneralRules from '../GeneralRules/GeneralRules.js';
 import SpecificRules from '../SpecificRules/SpecificRules.js';
+import SafeZones from '../App/SafeZones/SafeZones.js';
 
 const Home = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -134,6 +135,9 @@ const Home = () => {
                 </section>
                 <section id="specificRules">
                     <SpecificRules />
+                </section>
+                <section id= "safe-zones">
+                    <SafeZones />
                 </section>
             </div>
         </div>
