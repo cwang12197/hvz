@@ -79,7 +79,7 @@ const Home = () => {
                                 alt={'lawn'}
                                 style={{
                                     position: 'absolute',
-                                    transform: `translate3d(0px, ${scrollY * (0 + 0.2)}px, 0px)`,
+                                    transform: `translate3d(0px, ${scrollY * (0 + 0.08)}px, 0px)`,
                                     opacity: 1 - scrollY / 1000,
                                     width: '100%',  
                                     height: 'auto',
