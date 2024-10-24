@@ -6,7 +6,7 @@ function SpecificRules() {
         <section className="rules-section">
             <h2 className="rules-header">SPECIFIC RULES</h2>
             <div className="things-to-know-content">
-                <p><strong>NO RESTRAINING PEOPLE.</strong> Zombies can trap people but cannot restrain or block doors with humans.Families can trap people with multiple zombies, but they cannot use humans</p>
+                <p><strong>NO RESTRAINING PEOPLE.</strong> Zombies collapsing on humans is OKAY -- it’s the same thing as if you are in a corner and then 2 zombies come toward you and you are trapped. What we do not allow is for people to physically restrain people from moving, or have one person block a door. Families can trap people with multiple zombies, but they cannot use humans because there is no reason for those humans to be there blocking the way. Zombies are allowed to trap someone because they are actively trying to kill the human.</p>
                 <p><strong>ONLY ZOMBIES WEAR SOCKS.</strong> Humans can carry socks to stun zombies but cannot wear them and pretend to be a zombie.</p>
                 <p><strong>NO ATTACKING HUMANS ON TRANSPORTATION.</strong> Stay safe—avoid attacking anyone on vehicles (e.g. cars, bikes, buses, skateboards) and don't cram people into vehicles for the sake of avoiding an attack.</p>
                 <p><strong>REPORT KILLS AS SOON AS POSSIBLE</strong> Submit kill reports by midnight of that day for them to count.</p>
