@@ -5,14 +5,14 @@ import './Rules.css';
 function Rules() {
     return (
         <section className="rules-section">
-            <h2 className="rules-header">Things to Note</h2>
-            <div className="rules-content">
+            <h2 className="rules-header">THINGS TO NOTE</h2>
+            <div className="things-to-know-content">
                 <p>
-                    <strong>THINGS TO NOTE:</strong> There is no due process of law. Community Chairs are judge, jury, and executioner.
+                    There is no due process of law. Community Chairs are <strong>judge, jury, and executioner</strong>.
                     All decisions are final. Excessive debating or arguing may result in point deductions from your family.
                 </p>
                 <p>
-                    Read all rules thoroughly before contacting us. Misunderstandings of clearly outlined rules may result 
+                    Read <strong>ALL</strong> rules thoroughly before contacting us. Misunderstandings of clearly outlined rules may result 
                     in point deductions for wasting time.
                 </p>
                 <p>
@@ -24,6 +24,7 @@ function Rules() {
                 <p>
                     Any edits to the rules will be posted in the HvZ Facebook group during the game.
                 </p>
+                <p className="honor-code">HONOR CODE APPLIES.</p>
             </div>
         </section>
     );

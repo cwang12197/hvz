@@ -1,0 +1,18 @@
+.things-to-know-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-top: 20px;
+}
+
+.things-to-know-content p {
+    margin-bottom: 15px;
+}
+
+.rules-header {
+    font-family: 'Okguys', 'sans-serif';
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}

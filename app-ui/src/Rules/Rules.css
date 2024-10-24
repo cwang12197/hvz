@@ -1,6 +1,6 @@
 .rules-section {
   margin-top: 50px;
-  padding: 5vw;
+  padding: 3vw;
   background-color: #f0f0f0;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -15,4 +15,19 @@
     padding: 3vw;
     width: 85%;
   }
+}
+
+.rules-header {
+  font-family: 'Okguys', 'sans-serif';
+  font-size: clamp(40px, 8vw, 70px); /* Dynamically scale font */
+  margin: 0;
+}
+
+.honor-code {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-family: 'Times New Roman', Times, serif; 
 }
