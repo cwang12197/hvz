@@ -1,59 +1,84 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 15px;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  z-index: 1000;
+  padding: 10px;
+  max-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+  transform: translateY(0); 
+}
+
+.navbar.hidden {
+  transform: translateY(-100%); 
+}
+
+.navbar.show {
+  transform: translateY(0);
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  padding: 0 20px;
+}
+
+.burger-icon {
+  width: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  margin-right: 20px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: space-evenly;
+  color: white;
+  align-items: center;
+  flex-grow: 1;
+  gap: 20px;
+}
+.navbar-links a:hover {
+  color: #bae7ab;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+      padding: 10px;
   }
-  
+
+  .navbar-container {
+      flex-direction: column; 
+      align-items: flex-start; 
+  }
+
   .navbar-links {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+      flex-direction: column; 
+      width: 100%; 
+      gap: 15px; 
+      max-height: 80vh;
   }
-  
-  .navbar-links li {
-    margin: 0 15px;
-    position: relative;
+  .navbar.show {
+    padding: 10px 0px;
   }
-  
-  .navbar-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-  }
-  
-  .navbar-links a:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #444;
-    list-style: none;
-    margin: 0;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .dropdown-menu li {
-    margin: 5px 0;
-  }
-  
-  .dropdown-menu a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .dropdown-menu a:hover {
-    text-decoration: underline;
-  }
-  
+}

@@ -14,7 +14,7 @@
 }
 
 .home-scrolljack-container {
-    height: 400vh;
+    min-height: 400vh; 
     position: relative;
     overflow: hidden;
   }

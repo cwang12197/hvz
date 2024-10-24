@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import './Home.css';
 import Rules from '../Rules/Rules.js';
 import GeneralRules from '../GeneralRules/GeneralRules.js';
+import SpecificRules from '../SpecificRules/SpecificRules.js';
 
 const Home = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -130,6 +131,9 @@ const Home = () => {
                 </section>
                 <section id="generalRules">
                     <GeneralRules />
+                </section>
+                <section id="specificRules">
+                    <SpecificRules />
                 </section>
             </div>
         </div>

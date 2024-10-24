@@ -16,3 +16,8 @@
     text-align: center;
     margin-bottom: 20px;
 }
+
+.highlight {
+    color: green;
+    font-weight: bold;
+}
