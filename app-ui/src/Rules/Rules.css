@@ -1,11 +1,18 @@
 .rules-section {
   margin-top: 50px;
-  padding: 50px;
+  padding: 5vw;
   background-color: #f0f0f0;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 80%;
-  max-width: 800px;
+  width: 95%;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 600px) {
+  .rules-section {
+    padding: 3vw;
+    width: 85%;
+  }
 }

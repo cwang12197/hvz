@@ -68,7 +68,7 @@
 }
 
 .home-container h1 {
-    font-size: clamp(2rem, 5vw, 6rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     color:#3e7c3f;
     font-family: 'Okguys', sans-serif;
     line-height: 1;

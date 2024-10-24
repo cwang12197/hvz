@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import './Home.css';
 import Rules from '../Rules/Rules.js';
 
@@ -21,14 +21,50 @@ const Home = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const imagePositions = [
-        { top: '0', left: '0' },
-        { top: '50px', left: '10%' },
-        { top: '80px', left: '90%' },
-        { top: '50px', right: '10%' },
-        { top: '100px', left: '30%' },
-        { top: '150px', right: '20%' },
-    ];
+    const generateImagePositions = (count = 10) => {
+        const positions = [];
+        const verticalStep = window.innerHeight / count;
+        const horizontalStep = (window.innerWidth) / (count);
+
+        for (let i = 0; i < count; i++) {
+            const top = `${Math.floor(i * verticalStep)}px`;
+            const side = i % 2 === 0 ? 'left' : 'right';
+            const value = `${Math.floor((i % (count)) * horizontalStep)}px`;
+
+            positions.push({ top, [side]: value });
+        }
+
+        for (let i = 0; i < count * 2; i++) {
+            const top = `${Math.floor(Math.random() * (window.innerHeight) + 50)}px`;
+            const side = i % 2 === 0 ? 'left' : 'right';
+            const left = `${Math.floor(Math.random() * window.innerWidth)}px`;
+
+            positions.push({ top, left });
+        }
+
+        return positions;
+    };
+
+    const imagePositions = useMemo(() => generateImagePositions(), []);
+
+    //feel free to change the images to update theme
+    let side_image_list = ['buckethead_zombie.webp', 'peashooter.webp', 'giant_zombie.png',
+        'sunflower.png', 'peashooter.webp', 'rocket_zombie.png', 'purple_green_plant.png',
+        'ice_pod.png', 'walnut.png', 'corn.png', 'zombie.png', 'bomb.png',
+        'swimmer.png', 'jalapeno.png'];
+
+    const doubleAndShuffleList = (list) => {
+        const doubledList = [...list, ...list];
+
+        for (let i = doubledList.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [doubledList[i], doubledList[j]] = [doubledList[j], doubledList[i]];
+        }
+
+        return doubledList;
+    };
+
+    side_image_list = useMemo(() => doubleAndShuffleList(side_image_list), []);
 
     return (
         <div id="home" className="home-scrolljack-container">
@@ -36,7 +72,21 @@ const Home = () => {
                 <section id="home--inner">
                     <div id="society">
                         <div id="landing-page-layers">
-                            {['bridge.png', 'bridge.png', 'bridge.png', 'bridge.png'].map((id, index) => (
+                            <img
+                                key={0}
+                                id={'lawn'}
+                                src={`/lawn.png`}
+                                alt={'lawn'}
+                                style={{
+                                    position: 'absolute',
+                                    transform: `translate3d(0px, ${scrollY * (0 + 0.2)}px, 0px)`,
+                                    opacity: 1 - scrollY / 1000,
+                                    width: '100%',  
+                                    height: 'auto',
+                                    willChange: 'transform',
+                                }}
+                            />
+                            {side_image_list.map((id, index) => (
                                 <img
                                     key={id + index}
                                     id={id}
@@ -47,6 +97,9 @@ const Home = () => {
                                         ...imagePositions[index],
                                         transform: `translate3d(0px, ${scrollY * (index + 0.2)}px, 0px)`,
                                         opacity: 1 - scrollY / 1000,
+                                        width: '150px',  // Adjust width
+                                        height: 'auto',
+                                        willChange: 'transform',
                                     }}
                                 />
                             ))}
@@ -55,7 +108,7 @@ const Home = () => {
                 </section>
                 <div className="png-container">
                     <img src="/pvz_note.png" alt="Wood Panel" className="background-png" />
-                    <div className="home-container">
+                    <section id="home" className="home-container">
                         <h1>WELCOME TO </h1>
                         <h1> CSA HVZ {currentYear} !</h1>
                         <p>
@@ -67,11 +120,11 @@ const Home = () => {
                                 {dates.monday} 12:00 AM - {dates.friday} 3:00 PM EST
                             </span>
                         </p>
-                    </div>
+                    </section>
                 </div>
                 <div style={{ height: '150vh' }}></div>
 
-                <section className="rules-section">
+                <section id="rules">
                     <Rules />
                 </section>
             </div>
