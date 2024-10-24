@@ -57,7 +57,7 @@ const Home = () => {
                     <img src="/pvz_note.png" alt="Wood Panel" className="background-png" />
                     <div className="home-container">
                         <h1>WELCOME TO </h1>
-                        <h1> CSA HVZ {currentYear}!</h1>
+                        <h1> CSA HVZ {currentYear} !</h1>
                         <p>
                             <span className="first-line">
                                 Here's your chance to eat the brains of your enemies and bring honor to your family!
